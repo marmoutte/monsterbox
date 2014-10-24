@@ -16,7 +16,7 @@ var LevelItem = Class.create(Group, {
       number.y = (size / 2) - (number.height / 2);
 
       var stars = new Group();
-      for (var i = 0; i < random(1, 4); i++) {
+      for (var i = 0; i < this.random(1, 4); i++) {
          var star = new Sprite(16, 16);
          star.image = Game.instance.assets['icon0.png'];
          star.frame = 30;
@@ -33,5 +33,8 @@ var LevelItem = Class.create(Group, {
    setPosition: function(x, y) {
       this.x = x;
       this.y = y;
+   },
+   random: function(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
    }
 });
