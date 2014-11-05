@@ -34,8 +34,11 @@ var Card = Class.create(Sprite, {
    },
    ontouchend: function(e) {
       if(this.value == "0"){
-     //    var node0 = root.first(function 
- //        game.equation[game.CHAPTER][game.LEVEL].
+         var node0 = game.equations[4][0].first(function (node) {
+		return node.model.id === this;
+	 });
+	 node0.drop();
+	 // AFFICHAGE refresh();
       }
    },
    ontouchmove: function(e) {
