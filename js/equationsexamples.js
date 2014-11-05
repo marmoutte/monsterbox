@@ -24,7 +24,6 @@ equations[4][0] = tree.parse({
 	}]
 });
 
-/*
 // Chapter 5, Level 2: c = x + (-6) + 6
 equations[4][1] = tree.parse({
 	id: '=',
@@ -169,4 +168,3 @@ equations[4][18] = tree.parse({});
 
 // Chapter 5, level 20: (2/x) + (d/e) = (b/x)
 equations[4][19] = tree.parse({});
-*/

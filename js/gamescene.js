@@ -1,6 +1,7 @@
 var GameScene = Class.create(Scene, {
    initialize: function() {
       Scene.apply(this);
+      this.NBCARDS = 0;
 
       var bg = new Sprite(WIDTH, HEIGHT);
       bg.backgroundColor = COLOR5;
@@ -22,11 +23,11 @@ var GameScene = Class.create(Scene, {
       btnPause.y = HEIGHT / 12;
       btnPause.addEventListener('touchend', this.pause);
 
-      var equationPanel = new Group(WIDTH, HEIGHT - (HEIGHT / 4));
-      equationPanel.addChild(new Sprite(WIDTH, HEIGHT - (HEIGHT / 4)));
-      equationPanel.x = 0;
-      equationPanel.y = HEIGHT / 8;
-      equationPanel.firstChild.backgroundColor = COLOR3;
+      this.equationPanel = new Group(WIDTH, HEIGHT - (HEIGHT / 4));
+      this.equationPanel.addChild(new Sprite(WIDTH, HEIGHT - (HEIGHT / 4)));
+      this.equationPanel.x = 0;
+      this.equationPanel.y = HEIGHT / 8;
+      this.equationPanel.firstChild.backgroundColor = COLOR3;
 
       var deckPanel = new Group(WIDTH, HEIGHT / 6);
       deckPanel.addChild(new Sprite(WIDTH, HEIGHT / 6));
@@ -34,67 +35,66 @@ var GameScene = Class.create(Scene, {
       deckPanel.y = HEIGHT - deckPanel.firstChild.height;
       deckPanel.firstChild.backgroundColor = COLOR4;
 
-      var offset = 50;
-      Game.instance.equations[4][0].walk({strategy: 'pre'}, function(node) {
-         
-      });
-
       this.addChild(bg);
       this.addChild(btnGoBack);
       this.addChild(score);
       this.addChild(btnPause);
-      this.addChild(equationPanel);
+      this.addChild(this.equationPanel);
       this.addChild(deckPanel);
       this.refresh();
    },
    refresh: function() {
-      var root = Game.instance.equations[4][3];
+      var root = Game.instance.equations[Game.instance.CURRENTCHAPTER][Game.instance.CURRENTLEVEL];
       var currentNode = root;
       var nbCard = 0;
-      root.walk(function(node){
-	 nbCard++;
+      
+      root.walk(function(node) {
+         nbCard++;
       });
-      console.log(nbCard);
-      this.recfresh(root, nbCard, false, false);
+
+      this.NBCARDS = nbCard;
+
+      this.recfresh(root, this.NBCARDS, false, false);
    },
    recfresh: function(node, cards, bool, biil) {
       newnbcards = cards;
-      if(cards == 0) {
-	      return;
-      }
-      
-      if(!node.hasChildren()){
-	  console.log(node.model.id.value);
-	  if(bool){
-	  newnbcards--;
-	  this.recfresh(node.parent, newnbcards--, true, true);
-	}
-	else{
-	  newnbcards--;
-	  this.recfresh(node.parent, newnbcards--, true, false);
-	}
-      }
-      else{
-	if(!bool){
-	 this.recfresh(node.children[0], cards, false, false);
-	}
-	if(bool && !biil){
-	 console.log(node.model.id.value);
-	 newnbcards--;
-	 if(node.children[1].hasChildren()) {
-	    this.recfresh(node.children[1], newnbcards, false, false);
-	  } else {
-	    this.recfresh(node.children[1], newnbcards, true, false);
-	  }
-	}
-	if(bool && biil){
-	 this.recfresh(node.parent, cards, true, false);
-	}
-	
+      if (cards == 0) {
+         return;
       }
 
+      if (!node.hasChildren()) {
+         var currentCard = node.model.id;
+         currentCard.setPosition((this.NBCARDS - newnbcards) * 100, HEIGHT / 2);
+         this.equationPanel.addChild(currentCard);
+         if (bool) {
+            newnbcards--;
+            this.recfresh(node.parent, newnbcards--, true, true);
+         } else {
+            newnbcards--;
+            this.recfresh(node.parent, newnbcards--, true, false);
+         }
+      } else {
+         if (!bool) {
+            this.recfresh(node.children[0], cards, false, false);
+         }
+         if (bool && !biil) {
+            var labelOperator = new Label(node.model.id);
+            labelOperator.font = (WIDTH / 16) + 'px Arial';
+            labelOperator.x = (this.NBCARDS - newnbcards) * 100;
+            labelOperator.y = HEIGHT / 2;
+            this.equationPanel.addChild(labelOperator);
+            newnbcards--;
+            if (node.children[1].hasChildren()) {
+               this.recfresh(node.children[1], newnbcards, false, false);
+            } else {
+               this.recfresh(node.children[1], newnbcards, true, false);
+            }
+         }
+         if (bool && biil) {
+            this.recfresh(node.parent, cards, true, false);
+         }
+      }
    },
-
    goBack: function() {
       Game.instance.replaceScene(new LevelScene());
    },
