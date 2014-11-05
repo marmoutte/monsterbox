@@ -1,8 +1,28 @@
 var Card = Class.create(Sprite, {
-   initialize: function(width, height, color) {
+   initialize: function(width, height, value, positive, id) {
       Sprite.call(this, width, height);
 
-      this.backgroundColor = color;
+      this.id = id;
+      this.value = value;
+      this.positive = positive;
+   },
+   getId: function() {
+      return this.id;
+   },
+   setId: function(id) {
+      this.id = id;
+   },
+   getValue: function() {
+      return this.value;
+   },
+   setValue: function(value) {
+      this.value;
+   },
+   isPositive: function() {
+      return this.positive;
+   },
+   setPositive: function(positive) {
+      this.positive = positive;
    },
    setPosition: function(x, y) {
       this.x = x;
