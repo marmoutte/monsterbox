@@ -5,3 +5,5 @@ var COLOR2 = '#E5E5E5';
 var COLOR3 = '#AEB5BF';
 var COLOR4 = '#69727F';
 var COLOR5 = '#252B33';
+var NUMBERCHAPTER = 5;
+var NUMBERLEVEL = 20;
