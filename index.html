@@ -23,10 +23,16 @@
 	<script src="js/levelselectionscene.js"></script>
 	<script src="js/gamescene.js"></script>
 	<script src="js/pausescene.js"></script>
+	<!-- EQUATIONS -->
+	<script src="js/libs/treemodel.js"></script>
+	<script src="js/equationsexamples.js"></script>
 	<script>
 		window.onload = function() {
 			var game = new Game(WIDTH, HEIGHT);
 			game.fps = 30;
+			game.NUMBERCHAPTER = NUMBERCHAPTER;
+			game.NUMBERLEVEL = NUMBERLEVEL;
+			game.equations = equations;
 
 			game.onload = function() {
 				game.pushScene(new MainScene());
