@@ -15,31 +15,32 @@ equations[4][0] = tree.parse({
 	children: [{
 		id: '+',
 		children: [{
-			id: new Card(0, 0, '0', true)
+			id: new Card(0 ,0, WIDTH / 16, '0', true)
 		}, {
-			id: new Card(0, 0, 'x', true)
+			id: new Card(0 ,0, WIDTH / 16, 'x', true)
 		}]
 	}, {
-		id: new Card(0, 0, 'b', true)
+		id: new Card(0 ,0, WIDTH / 16, 'b', true)
 	}]
 });
 
+/*
 // Chapter 5, Level 2: c = x + (-6) + 6
 equations[4][1] = tree.parse({
 	id: '=',
 	children: [{
-		id: new Card(0, 0, 'c', true)
+		id: new Card(WIDTH / 16, 0, 'c', true)
 	}, {
 		id: '+',
 		children: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, 'x', true)
+				id: new Card(WIDTH / 16, 0, 'x', true)
 			}, {
-				id: new Card(0, 0, '-6', false)
+				id: new Card(WIDTH / 16, 0, '-6', false)
 			}]
 		}, {
-			id: new Card(0, 0, '6', true)
+			id: new Card(WIDTH / 16, 0, '6', true)
 		}]
 	}]
 });
@@ -52,28 +53,28 @@ equations[4][2] = tree.parse({
 		children: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, '-5', false)
+				id: new Card(WIDTH / 16, 0, '-5', false)
 			}, {
-				id: new Card(0, 0, '5', true)
+				id: new Card(WIDTH / 16, 0, '5', true)
 			}]
 		}, {
-			id: new Card(0, 0, 'c', true)
+			id: new Card(WIDTH / 16, 0, 'c', true)
 		}]
 	}, {
 		id: '+',
 		childrend: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, 'e', true)
+				id: new Card(WIDTH / 16, 0, 'e', true)
 			}, {
-				id: new Card(0, 0, '-e', false)
+				id: new Card(WIDTH / 16, 0, '-e', false)
 			}]
 		}, {
 			id: '+',
 			children: [{
-				id: new Card(0, 0, '2', true)
+				id: new Card(WIDTH / 16, 0, '2', true)
 			}, {
-				id: new Card(0, 0, 'x', true)
+				id: new Card(WIDTH / 16, 0, 'x', true)
 			}]
 		}]
 	}]
@@ -87,15 +88,15 @@ equations[4][3] = tree.parse({
 		children: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, '-c', false)
+				id: new Card(WIDTH / 16, 0, '-c', false)
 			}, {
-				id: new Card(0, 0, 'x', true)
+				id: new Card(WIDTH / 16, 0, 'x', true)
 			}]
 		}, {
-			id: new Card(0, 0, 'd', true)
+			id: new Card(WIDTH / 16, 0, 'd', true)
 		}]
 	}, {
-		id: new Card(0, 0, 'b', true)
+		id: new Card(WIDTH / 16, 0, 'b', true)
 	}]
 });
 
@@ -109,18 +110,18 @@ equations[4][4] = tree.parse({
 			children: [{
 				id: '/',
 				children: [{
-					id: new Card(0, 0, 'e', true)
+					id: new Card(WIDTH / 16, 0, 'e', true)
 				}, {
-					id: new Card(0, 0, 'e', true)
+					id: new Card(WIDTH / 16, 0, 'e', true)
 				}]
 			}, {
-				id: new Card(0, 0, 'x', true)
+				id: new Card(WIDTH / 16, 0, 'x', true)
 			}]
 		}, {
-			id: new Card(0, 0, '-1', false)
+			id: new Card(WIDTH / 16, 0, '-1', false)
 		}]
 	}, {
-		id: new Card(0, 0, 'd', true)
+		id: new Card(WIDTH / 16, 0, 'd', true)
 	}]
 });
 
@@ -168,3 +169,4 @@ equations[4][18] = tree.parse({});
 
 // Chapter 5, level 20: (2/x) + (d/e) = (b/x)
 equations[4][19] = tree.parse({});
+*/

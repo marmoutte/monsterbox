@@ -34,6 +34,11 @@ var GameScene = Class.create(Scene, {
       deckPanel.y = HEIGHT - deckPanel.firstChild.height;
       deckPanel.firstChild.backgroundColor = COLOR4;
 
+      var offset = 50;
+      Game.instance.equations[4][0].walk({strategy: 'pre'}, function(node) {
+         
+      });
+
       this.addChild(bg);
       this.addChild(btnGoBack);
       this.addChild(score);
