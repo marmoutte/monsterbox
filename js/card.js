@@ -12,6 +12,12 @@ var Card = Class.create(Sprite, {
       this.originX = e.x - this.x;
       this.originY = e.y - this.y;
    },
+   ontouchend: function(e) {
+      if(this.value == "0"){
+     //    var node0 = root.first(function 
+ //        game.equation[game.CHAPTER][game.LEVEL].
+      }
+   },
    ontouchmove: function(e) {
       var boundLeft = this.width * 1.5;
       var boundRight = (WIDTH / 2) - boundLeft;
