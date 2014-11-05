@@ -21,12 +21,12 @@ equations[4][0] = tree.parse({
 	children: [{
 		id: '+',
 		children: [{
-			id: new Card('0')
+			id: new Card('0', true, 1)
 		}, {
-			id: new Card('x')
+			id: new Card('x', true, 2)
 		}]
 	}, {
-		id: new Card('b')
+		id: new Card('b', true, 3)
 	}]
 });
 
@@ -46,8 +46,8 @@ equations[4][1] = tree.parse({
 			]}
 		}, {
 			id: new Card('6')
-		]}
-	]}
+		}]
+	}]
 });
 
 // Chapter 5, Level 3: (-5) + 5 + c = e + (-e) + 2 + x
@@ -82,7 +82,7 @@ equations[4][2] = tree.parse({
 				id: new Card('x')
 			}]
 		}]
-	]}
+	}]
 });
 
 // Chapter 5, Level 4: (-c) + x + d = b
@@ -127,7 +127,7 @@ equations[4][4] = tree.parse({
 		}]
 	}, {
 		id: new Card('d')
-	]}
+	}]
 });
 
 // Chapter 5, Level 6: b = x + (f*5/f)
