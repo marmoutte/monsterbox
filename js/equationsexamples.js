@@ -1,16 +1,10 @@
-var Card = function(value) {
-	this.value = value;
-}
 var tree = new TreeModel();
-
-var numberChapters = 5;
-var numberLevels = 20;
 var equations = [];
 
-for (var i = 0; i < numberChapters; i++) {
+for (var i = 0; i < NUMBERCHAPTER; i++) {
 	equations[i] = [];
 
-	for (var j = 0; j < numberLevels; j++) {
+	for (var j = 0; j < NUMBERLEVEL; j++) {
 		equations[i][j] = null;
 	}
 }
@@ -34,18 +28,18 @@ equations[4][0] = tree.parse({
 equations[4][1] = tree.parse({
 	id: '=',
 	children: [{
-		id: new Card(0, 0, 'c'),
+		id: new Card(0, 0, 'c', true)
 	}, {
 		id: '+',
 		children: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, 'x')
+				id: new Card(0, 0, 'x', true)
 			}, {
-				id: new Card(0, 0, '-6')
+				id: new Card(0, 0, '-6', false)
 			}]
 		}, {
-			id: new Card(0, 0, '6')
+			id: new Card(0, 0, '6', true)
 		}]
 	}]
 });
@@ -58,28 +52,28 @@ equations[4][2] = tree.parse({
 		children: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, '-5')
+				id: new Card(0, 0, '-5', false)
 			}, {
-				id: new Card(0, 0, '5')
+				id: new Card(0, 0, '5', true)
 			}]
 		}, {
-			id: new Card(0, 0, 'c')
+			id: new Card(0, 0, 'c', true)
 		}]
 	}, {
 		id: '+',
 		childrend: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, 'e')
+				id: new Card(0, 0, 'e', true)
 			}, {
-				id: new Card(0, 0, '-e')
+				id: new Card(0, 0, '-e', false)
 			}]
 		}, {
 			id: '+',
 			children: [{
-				id: new Card(0, 0, '2')
+				id: new Card(0, 0, '2', true)
 			}, {
-				id: new Card(0, 0, 'x')
+				id: new Card(0, 0, 'x', true)
 			}]
 		}]
 	}]
@@ -93,15 +87,15 @@ equations[4][3] = tree.parse({
 		children: [{
 			id: '+',
 			children: [{
-				id: new Card(0, 0, '-c')
+				id: new Card(0, 0, '-c', false)
 			}, {
-				id: new Card(0, 0, 'x')
+				id: new Card(0, 0, 'x', true)
 			}]
 		}, {
-			id: new Card(0, 0, 'd')
+			id: new Card(0, 0, 'd', true)
 		}]
 	}, {
-		id: new Card(0, 0, 'b')
+		id: new Card(0, 0, 'b', true)
 	}]
 });
 
@@ -115,18 +109,18 @@ equations[4][4] = tree.parse({
 			children: [{
 				id: '/',
 				children: [{
-					id: new Card(0, 0, 'e')
+					id: new Card(0, 0, 'e', true)
 				}, {
-					id: new Card(0, 0, 'e')
+					id: new Card(0, 0, 'e', true)
 				}]
 			}, {
-				id: new Card(0, 0, 'x')
+				id: new Card(0, 0, 'x', true)
 			}]
 		}, {
-			id: new Card(0, 0, '-1')
+			id: new Card(0, 0, '-1', false)
 		}]
 	}, {
-		id: new Card(0, 0, 'd')
+		id: new Card(0, 0, 'd', true)
 	}]
 });
 
