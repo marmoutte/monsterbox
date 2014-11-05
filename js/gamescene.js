@@ -22,32 +22,24 @@ var GameScene = Class.create(Scene, {
       btnPause.y = HEIGHT / 12;
       btnPause.addEventListener('touchend', this.pause);
 
-      var leftSide = new Group(WIDTH / 2, HEIGHT - (HEIGHT / 4));
-      leftSide.addChild(new Sprite(WIDTH / 2, HEIGHT - (HEIGHT / 4)));
-      leftSide.x = 0;
-      leftSide.y = HEIGHT / 8;
-      leftSide.firstChild.backgroundColor = COLOR3;
+      var equationPanel = new Group(WIDTH, HEIGHT - (HEIGHT / 4));
+      equationPanel.addChild(new Sprite(WIDTH, HEIGHT - (HEIGHT / 4)));
+      equationPanel.x = 0;
+      equationPanel.y = HEIGHT / 8;
+      equationPanel.firstChild.backgroundColor = COLOR3;
 
-      var cardSize = WIDTH / 16;
-      var dayCard = new Card(cardSize, cardSize, '#ddd');
-      dayCard.setPosition(WIDTH / 3, HEIGHT / 4);
-      var nightCard = new Card(cardSize, cardSize, '#222');
-      nightCard.setPosition((WIDTH / 3) - (cardSize * 2), HEIGHT / 4);
-      leftSide.addChild(dayCard);
-      leftSide.addChild(nightCard);
-
-      var rightSide = new Group(WIDTH / 2, HEIGHT - (HEIGHT / 4));
-      rightSide.addChild(new Sprite(WIDTH / 2, HEIGHT - (HEIGHT / 4)));
-      rightSide.x = WIDTH / 2;
-      rightSide.y = HEIGHT / 8;
-      rightSide.firstChild.backgroundColor = COLOR4;
+      var deckPanel = new Group(WIDTH, HEIGHT / 6);
+      deckPanel.addChild(new Sprite(WIDTH, HEIGHT / 6));
+      deckPanel.x = 0;
+      deckPanel.y = HEIGHT - deckPanel.firstChild.height;
+      deckPanel.firstChild.backgroundColor = COLOR4;
 
       this.addChild(bg);
       this.addChild(btnGoBack);
       this.addChild(score);
       this.addChild(btnPause);
-      this.addChild(leftSide);
-      this.addChild(rightSide);
+      this.addChild(equationPanel);
+      this.addChild(deckPanel);
    },
    goBack: function() {
       Game.instance.replaceScene(new LevelScene());
