@@ -31,6 +31,15 @@ var Card = Class.create(Sprite, {
       this.originX = e.x - this.x;
       this.originY = e.y - this.y;
    },
+   ontouchend: function(e) {
+      if(this.value == "0"){
+         var node0 = game.equations[4][0].first(function (node) {
+		return node.model.id === this;
+	 });
+	 node0.drop();
+	 // AFFICHAGE refresh();
+      }
+   },
    ontouchmove: function(e) {
       var boundLeft = 0;
       var boundRight = WIDTH;

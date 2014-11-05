@@ -45,7 +45,56 @@ var GameScene = Class.create(Scene, {
       this.addChild(btnPause);
       this.addChild(equationPanel);
       this.addChild(deckPanel);
+      this.refresh();
    },
+   refresh: function() {
+      var root = Game.instance.equations[4][3];
+      var currentNode = root;
+      var nbCard = 0;
+      root.walk(function(node){
+	 nbCard++;
+      });
+      console.log(nbCard);
+      this.recfresh(root, nbCard, false, false);
+   },
+   recfresh: function(node, cards, bool, biil) {
+      newnbcards = cards;
+      if(cards == 0) {
+	      return;
+      }
+      
+      if(!node.hasChildren()){
+	  console.log(node.model.id.value);
+	  if(bool){
+	  newnbcards--;
+	  this.recfresh(node.parent, newnbcards--, true, true);
+	}
+	else{
+	  newnbcards--;
+	  this.recfresh(node.parent, newnbcards--, true, false);
+	}
+      }
+      else{
+	if(!bool){
+	 this.recfresh(node.children[0], cards, false, false);
+	}
+	if(bool && !biil){
+	 console.log(node.model.id.value);
+	 newnbcards--;
+	 if(node.children[1].hasChildren()) {
+	    this.recfresh(node.children[1], newnbcards, false, false);
+	  } else {
+	    this.recfresh(node.children[1], newnbcards, true, false);
+	  }
+	}
+	if(bool && biil){
+	 this.recfresh(node.parent, cards, true, false);
+	}
+	
+      }
+
+   },
+
    goBack: function() {
       Game.instance.replaceScene(new LevelScene());
    },
