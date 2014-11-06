@@ -50,7 +50,7 @@ var Card = Class.create(Label, {
       }
 
       var a = this.intersect(Card);
-      console.log(a);
+      //console.log(a);
       if (a.length > 1) {
          console.log('collision detected');
       }
